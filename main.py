@@ -128,10 +128,19 @@ def  save_all(*args):
   nf.close()
   resf=open(fnum+'_'+str(ndegs)+'.txt','w')
   resf.write("#FIO : "+fio_entry.get()+"\n")
+  fio_entry.delete(0,END)
   resf.write("#AGE : "+age_entry.get() + "\n")
+  age_entry.delete(0,END)
   resf.write("#POL : " + pol_entry.get() + "\n")
+  pol_entry.delete(0,END)
   resf.write("#TRUD: " + trud_entry.get() + "\n")
+  trud_entry.delete(0,END)
   resf.write("#S: " + plosh[0].get()+ " "+plosh[1].get()+ " "+plosh[2].get()+ " "+plosh[3].get()+ "\n")
+  for i in range(0,4):
+   plosh[i].set('')
+  resf.write("#Lmax/Rmax: " + lmax_entry.get() +' '+rmax_entry.get()+ "\n")
+  lmax_entry.delete(0,END)
+  rmax_entry.delete(0,END)
   resf.write(str(degs[ndegs-1].get()) + "   ")
   for j in range(0, 4):
       resf.write(str(degs_ent[j][ndegs-1].get()) + "    ")
@@ -140,6 +149,7 @@ def  save_all(*args):
       resf.write(str(degs[i].get())+ "   ")
       for j in range(0,4):
           resf.write(str(degs_ent[j][i].get())+ "    ")
+          degs_ent[j][i].delete(0,END)
       resf.write("\n")
   resf.close()
   fname_saved.set('Saved as:'+fnum+'_'+str(ndegs)+'.txt')
@@ -157,6 +167,8 @@ mainframe.rowconfigure(0, weight=1)
 
 fio = StringVar()
 age = StringVar()
+rmax = StringVar()
+lmax = StringVar()
 pol = StringVar()
 trud= StringVar()
 meters = StringVar()
@@ -211,6 +223,14 @@ for j in range(0,4):
     for i in range(1, 13):
      degs_ent[j].append(Entry(mainframe,width = 4, bg=encols[j]))
      degs_ent[j][i - 1].grid(column=2+j, row=6+i, sticky=(W))
+
+lmax_entry = ttk.Entry(mainframe, width=5, textvariable=lmax)
+lmax_entry.grid(column=2, row=6+13, sticky=(W, E))
+rmax_entry = ttk.Entry(mainframe, width=5, textvariable=rmax)
+rmax_entry.grid(column=4, row=6+13, sticky=(W, E))
+ttk.Label(mainframe, text="MAX:").grid(column=1, row=6 + 13, sticky=W)
+#ttk.Label(mainframe, text="Возраст").grid(column=1, row=2, sticky=W)
+
 
 leye =Canvas(mainframe,width=220, height=220)
 leye.grid(column=5, row=1, sticky=(W, E), columnspan = 5,rowspan = 5)
