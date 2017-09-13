@@ -91,12 +91,12 @@ def calc_left(*args):
             ang_i=math.radians(float(degs[i].get()))
             ang_i1=math.radians(float(degs[i+1].get()))
             xi=math.cos(ang_i)*vi+cent[0]
-            yi=math.sin(ang_i)*vi+cent[0]
+            yi=-math.sin(ang_i)*vi+cent[0]
             xi1=math.cos(ang_i1)*vi1+cent[0]
-            yi1=math.sin(ang_i1)*vi1+cent[0]
+            yi1=-math.sin(ang_i1)*vi1+cent[0]
             s=s+vi*vi1*math.sin(ang_i1-ang_i)/2.
-            leye.create_line(cent[0],cent[0], math.cos(ang_i1)*100+cent[0], math.sin(ang_i1)*100+cent[0])
-            reye.create_line(cent[0],cent[0], math.cos(ang_i1)*100+cent[0], math.sin(ang_i1)*100+cent[0])
+            leye.create_line(cent[0],cent[0], math.cos(ang_i1)*100+cent[0], -math.sin(ang_i1)*100+cent[0])
+            reye.create_line(cent[0],cent[0], math.cos(ang_i1)*100+cent[0], -math.sin(ang_i1)*100+cent[0])
             if(j<2):
              leye.create_line(xi,yi,xi1,yi1,fill=encols[j])
             else:
@@ -106,14 +106,14 @@ def calc_left(*args):
         ang_i = math.radians(float(degs[0].get()))
         ang_i1 = math.radians(float(degs[ndegs-1].get()))
         xi = math.cos(ang_i) * vi + cent[0]
-        yi = math.sin(ang_i) * vi + cent[0]
+        yi = -math.sin(ang_i) * vi + cent[0]
         xi1 = math.cos(ang_i1) * vi1 + cent[0]
-        yi1 = math.sin(ang_i1) * vi1 + cent[0]
+        yi1 = -math.sin(ang_i1) * vi1 + cent[0]
         s = s + vi * vi1 * math.sin(math.radians(float(degs[1].get())) - math.radians(float(degs[0].get()))) / 2.
-        leye.create_line(cent[0], cent[0], math.cos(ang_i) * 100 + cent[0], math.sin(ang_i) * 100 + cent[0])
-        reye.create_line(cent[0], cent[0], math.cos(ang_i) * 100 + cent[0], math.sin(ang_i) * 100 + cent[0])
-        leye.create_line(cent[0], cent[0], math.cos(ang_i1) * 100 + cent[0], math.sin(ang_i1) * 100 + cent[0])
-        reye.create_line(cent[0], cent[0], math.cos(ang_i1) * 100 + cent[0], math.sin(ang_i1) * 100 + cent[0])
+        leye.create_line(cent[0], cent[0], math.cos(ang_i) * 100 + cent[0], -math.sin(ang_i) * 100 + cent[0])
+        reye.create_line(cent[0], cent[0], math.cos(ang_i) * 100 + cent[0], -math.sin(ang_i) * 100 + cent[0])
+        leye.create_line(cent[0], cent[0], math.cos(ang_i1) * 100 + cent[0], -math.sin(ang_i1) * 100 + cent[0])
+        reye.create_line(cent[0], cent[0], math.cos(ang_i1) * 100 + cent[0], -math.sin(ang_i1) * 100 + cent[0])
         if (j < 2):
             leye.create_line(xi, yi, xi1, yi1, fill=encols[j])
         else:
