@@ -193,7 +193,7 @@ class MeterWindow(tk.Toplevel):
 
         self.trud_entry = ttk.Entry(mainframe, width=20, textvariable=self.trud)
         self.trud_entry.grid(column=2, row=4, sticky=(W, E), columnspan = 3)
-        ttk.Label(mainframe, text="Труд").grid(column=1, row=4, sticky=W)
+        ttk.Label(mainframe, text="Мир.Труд.Май.").grid(column=1, row=4, sticky=W)
 
         #ttk.Label(mainframe, textvariable=meters).grid(column=2, row=2, sticky=(W, E))
         #ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=W)
